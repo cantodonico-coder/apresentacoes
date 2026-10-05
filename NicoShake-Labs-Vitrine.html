@@ -686,7 +686,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
      "ok": true
     }
    ],
-   "linkPublico": "https://cantodonico-coder.github.io/Pereira_Ronano/",
+   "linkPublico": "https://cantodonico-coder.github.io/familia-power/",
    "linkApresentacao": "https://cantodonico-coder.github.io/apresentacoes/familia-power.html",
    "valores": []
   },
@@ -727,7 +727,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
      "ok": true
     }
    ],
-   "linkPublico": "",
+   "linkPublico": "https://cantodonico-coder.github.io/mc-supremo/",
    "linkApresentacao": "https://cantodonico-coder.github.io/apresentacoes/mc-supremo.html",
    "valores": []
   },
@@ -850,14 +850,14 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
     },
     {
      "t": "Publicar no GitHub",
-     "ok": false
+     "ok": true
     },
     {
      "t": "Primeiro cliente piloto",
      "ok": false
     }
    ],
-   "linkPublico": "",
+   "linkPublico": "https://cantodonico-coder.github.io/zap-balcao/",
    "linkApresentacao": "https://cantodonico-coder.github.io/apresentacoes/zap-balcao.html",
    "valores": []
   },
@@ -1004,6 +1004,7 @@ if(OFI){try{var velho=localStorage.getItem("nicoshake-oficina-v5")||localStorage
   BASE.atalhos.forEach(function(a){if(!D.atalhos.some(function(x){return x[0]===a[0];}))D.atalhos.push(a);});
   editado=JSON.stringify(D)!==JSON.stringify(BASE);}}catch(e){}}
 D.projetos.forEach(function(p){if(p.id==="sentinela"&&p.nome==="Sentinela RS")p.nome="Sentinela Matriz";});
+(function(){var L={"familia-power": "https://cantodonico-coder.github.io/familia-power/", "mc-supremo": "https://cantodonico-coder.github.io/mc-supremo/", "zap-balcao": "https://cantodonico-coder.github.io/zap-balcao/"};D.projetos.forEach(function(p){var v=L[p.id];if(!v)return;if(!p.linkPublico||/Pereira_Ronano/.test(p.linkPublico))p.linkPublico=v;if(typeof p.link==="string"&&(!p.link||/Pereira_Ronano/.test(p.link)))p.link=v;});})();
 var filtro={eco:"TODOS",q:""},abertos={},fixos={};
 var HOVER=window.matchMedia&&matchMedia("(hover:hover) and (pointer:fine)").matches;
 
