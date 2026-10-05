@@ -15,6 +15,7 @@
   --seg:#19d3c5; --seg2:#7cf29a;
   --laz:#ffc933; --laz2:#8c6bff;
   --neg:#25d366; --neg2:#c8f560;
+  --edu:#2f7bff; --edu2:#ffd23f;
   --base:#6c4dff;
   --ok:#12b76a; --warn:#f79009;
   --disp:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
@@ -48,6 +49,7 @@ html[data-modo="oficina"] .so-vitrine{display:none!important}
 .nav .b-seg[aria-pressed="true"]{background:var(--seg);color:var(--tinta)}
 .nav .b-laz[aria-pressed="true"]{background:var(--laz);color:var(--tinta)}
 .nav .b-neg[aria-pressed="true"]{background:var(--neg);color:var(--tinta)}
+.nav .b-edu[aria-pressed="true"]{background:var(--edu);color:#fff}
 .nav .b-base[aria-pressed="true"]{background:var(--base);color:#fff}
 .busca{width:170px;border:0;border-radius:999px;padding:8px 14px;background:rgba(240,238,233,.1);color:var(--cloud)}
 .busca::placeholder{color:rgba(240,238,233,.6)}
@@ -104,6 +106,7 @@ html[data-modo="oficina"] .so-vitrine{display:none!important}
 .mundo.seg{--fundo:var(--seg);--txt:var(--tinta);--c:var(--seg);--c2:var(--seg2)}
 .mundo.laz{--fundo:var(--laz);--txt:var(--tinta);--c:var(--laz);--c2:var(--laz2)}
 .mundo.neg{--fundo:var(--neg);--txt:var(--tinta);--c:var(--neg);--c2:var(--neg2)}
+.mundo.edu{--fundo:var(--edu);--txt:#fff;--c:var(--edu);--c2:var(--edu2)}
 .mundo.base{--fundo:var(--base);--txt:#fff;--c:var(--base);--c2:var(--teal-viva)}
 .mundo:before{content:"";position:absolute;inset:0;background:radial-gradient(900px 420px at 100% 0,var(--c2),transparent 70%);opacity:.6;pointer-events:none}
 .mundo .miolo{position:relative}
@@ -226,6 +229,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
       <button class="b-seg" data-eco="SEGURANÇA E CONTROLE" aria-pressed="false">Segurança</button>
       <button class="b-laz" data-eco="LAZER" aria-pressed="false">Lazer</button>
       <button class="b-neg" data-eco="NEGÓCIOS E ATENDIMENTO" aria-pressed="false">Negócios</button>
+      <button class="b-edu" data-eco="EDUCAÇÃO E CARREIRA" aria-pressed="false">Educação</button>
       <button class="b-base" data-eco="BASE" aria-pressed="false">Base</button>
     </nav>
     <input class="busca" id="busca" type="search" placeholder="Procurar…" aria-label="Procurar">
@@ -235,7 +239,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
 <section class="abre" id="topo">
   <div class="miolo">
     <h1 class="marca">NicoShake<span>Labs</span></h1>
-    <p class="posic so-vitrine"><b>Ferramentas de software e jogos</b>, do conceito ao produto. Automação que trabalha sozinha, apps que cuidam da família, atendimento para negócios e jogos feitos para o celular.</p>
+    <p class="posic so-vitrine"><b>Ferramentas de software e jogos</b>, do conceito ao produto. Automação que trabalha sozinha, apps que cuidam da família, atendimento para negócios, treino para o primeiro emprego e jogos feitos para o celular.</p>
     <p class="posic so-oficina">Sua oficina: onde cada projeto está, como abrir, como atualizar e o que falta para 100%. <b>Não compartilhe este arquivo.</b></p>
     <div class="pilares" id="pilares"></div>
     <p class="guia">Toque num nome para ir direto ao projeto.<span class="so-vitrine" id="linkTodas"></span></p>
@@ -301,7 +305,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
       <h2 id="fTitulo">Editar</h2>
       <label>Nome<input name="nome" required=""></label>
       <div class="dois">
-        <label>Ecossistema<select name="eco"><option value="CULTURAL">Cultural</option><option value="SEGURANÇA E CONTROLE">Segurança e controle</option><option value="LAZER">Lazer</option><option value="NEGÓCIOS E ATENDIMENTO">Negócios e atendimento</option><option value="BASE">Base / Organização</option></select></label>
+        <label>Ecossistema<select name="eco"><option value="CULTURAL">Cultural</option><option value="SEGURANÇA E CONTROLE">Segurança e controle</option><option value="LAZER">Lazer</option><option value="NEGÓCIOS E ATENDIMENTO">Negócios e atendimento</option><option value="EDUCAÇÃO E CARREIRA">Educação e carreira</option><option value="BASE">Base / Organização</option></select></label>
         <label>Tipo<select name="tipo"><option value="ferramenta">Ferramenta</option><option value="jogo">Jogo</option></select></label>
       </div>
       <label>O que é (1 frase, aparece na vitrine)<textarea name="resumo" style="font-family:var(--body);font-size:.95rem"></textarea></label>
@@ -342,7 +346,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
 <!-- ===== DADOS (os botões "Baixar" reescrevem este bloco) ===== -->
 <script id="dados" type="application/json">
 {
- "atualizado": "2026-10-02",
+ "atualizado": "2026-10-05",
  "linkApresentacoes": "https://cantodonico-coder.github.io/apresentacoes/",
  "projetos": [
   {
@@ -926,6 +930,59 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
    "valores": []
   },
   {
+   "id": "primeiro-cracha",
+   "nome": "Primeiro Crachá",
+   "eco": "EDUCAÇÃO E CARREIRA",
+   "tipo": "ferramenta",
+   "resumo": "Treino para quem está entrando no mercado de trabalho. Missões de 5 minutos de e-mail, slides, fala em público e uso de IA.",
+   "destaques": [
+    "4 trilhas: E-mail, Slides, Falar em público e Usar IA",
+    "12 missões curtas com situações reais de trabalho",
+    "Crachá com níveis: Candidato, Estagiário, Júnior e Pleno",
+    "Autoavaliação por critério e comparação com versão profissional",
+    "Funciona no celular, sem cadastro"
+   ],
+   "tech": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "GitHub Pages"
+   ],
+   "etapas": [
+    {
+     "t": "4 trilhas de treino",
+     "ok": true
+    },
+    {
+     "t": "12 missões",
+     "ok": true
+    },
+    {
+     "t": "Crachá com níveis e XP",
+     "ok": true
+    },
+    {
+     "t": "Autoavaliação com versão profissional",
+     "ok": true
+    },
+    {
+     "t": "Publicado no GitHub",
+     "ok": true
+    },
+    {
+     "t": "Correção por IA",
+     "ok": false
+    },
+    {
+     "t": "Testes com jovens",
+     "ok": false
+    }
+   ],
+   "linkPublico": "https://cantodonico-coder.github.io/primeiro-cracha/",
+   "linkApresentacao": "https://cantodonico-coder.github.io/apresentacoes/primeiro-cracha.html",
+   "valores": []
+  },
+  {
    "id": "nicoshake-oficina",
    "nome": "Oficina NicoShake",
    "eco": "BASE",
@@ -990,6 +1047,7 @@ var ECOS=[
  {k:"SEGURANÇA E CONTROLE",nome:"Segurança",cls:"seg",cor:"var(--seg)",frase:"Proteger a casa: as crianças na internet e a organização da família."},
  {k:"LAZER",nome:"Lazer",cls:"laz",cor:"var(--laz)",frase:"Jogos para celular e o estúdio que dá movimento aos personagens."},
  {k:"NEGÓCIOS E ATENDIMENTO",nome:"Negócios",cls:"neg",cor:"var(--neg)",frase:"Atender e vender melhor: robôs de WhatsApp e sites com sistema para o balcão."},
+ {k:"EDUCAÇÃO E CARREIRA",nome:"Educação",cls:"edu",cor:"var(--edu)",frase:"Preparar quem está começando: treino prático para o primeiro emprego."},
  {k:"BASE",nome:"Base",cls:"base",cor:"var(--base)",frase:"A organização por trás de tudo: status, caminhos, atualizações e a vitrine."}
 ];
 var MAIS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
