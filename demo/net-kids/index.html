@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NET Kids — Painel · Demonstração · NicoShake Labs</title>
+  <link rel="stylesheet" href="css/styles.css?v=4" />
+</head>
+<body>
+<div style="background:#19d3c5;color:#04262a;font:700 13px/1.4 system-ui,sans-serif;text-align:center;padding:7px 12px">Demonstração · família e alertas fictícios · entre com qualquer e-mail e senha</div>
+
+  <!-- Login -->
+  <section id="login-screen" class="screen centered-screen">
+    <div class="card">
+      <h1>NET Kids</h1>
+      <p class="subtitle">Acesso dos responsáveis</p>
+      <form id="login-form">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required autocomplete="email" />
+
+        <label for="password">Senha</label>
+        <input type="password" id="password" required autocomplete="current-password" minlength="6" />
+
+        <p id="login-error" class="error"></p>
+
+        <button type="submit" class="primary">Entrar</button>
+        <button type="button" id="signup-btn" class="secondary">Criar conta</button>
+        <button type="button" id="forgot-btn" class="link-btn forgot">Esqueci a senha</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Conectar a familia -->
+  <section id="family-screen" class="screen centered-screen hidden">
+    <div class="card">
+      <h1>Conectar a família</h1>
+      <p class="subtitle">Informe o ID da família (fornecido na configuração inicial)</p>
+      <form id="family-form">
+        <label for="family-id-input">ID da família</label>
+        <input type="text" id="family-id-input" required placeholder="ex: familia_principal" />
+        <p id="family-error" class="error"></p>
+        <button type="submit" class="primary">Conectar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Dashboard -->
+  <section id="dashboard-screen" class="screen hidden">
+    <header class="topbar">
+      <h1>Painel da família</h1>
+      <div class="topbar-actions">
+        <span id="user-email-label" class="user-email"></span>
+        <button id="switch-family-btn" class="link-btn">Trocar família</button>
+        <button id="sign-out-btn" class="link-btn">Sair</button>
+      </div>
+    </header>
+
+    <!-- Filtros -->
+    <section class="filters">
+      <div class="filter">
+        <label for="f-period">Período</label>
+        <select id="f-period">
+          <option value="1">Últimas 24 h</option>
+          <option value="7" selected>Últimos 7 dias</option>
+          <option value="30">Últimos 30 dias</option>
+          <option value="90">Últimos 90 dias</option>
+          <option value="0">Tudo</option>
+        </select>
+      </div>
+      <div class="filter">
+        <label for="f-child">Filho</label>
+        <select id="f-child"><option value="">Todos</option></select>
+      </div>
+      <div class="filter">
+        <label for="f-flag">Tipo</label>
+        <select id="f-flag"><option value="">Todos</option></select>
+      </div>
+      <div class="filter">
+        <label for="f-app">App</label>
+        <select id="f-app"><option value="">Todos</option></select>
+      </div>
+      <div class="filter filter-grow">
+        <label for="f-text">Buscar no texto</label>
+        <input type="search" id="f-text" name="busca-alertas" placeholder="palavra, site, conversa…" autocomplete="off" />
+      </div>
+      <div class="filter filter-actions">
+        <button id="clear-filters-btn" class="secondary small">Limpar</button>
+        <button id="export-csv-btn" class="primary small">Exportar CSV</button>
+      </div>
+    </section>
+
+    <!-- Resumo -->
+    <section class="summary">
+      <div class="tile"><span class="tile-label">Alertas</span><span id="s-total" class="tile-value">0</span></div>
+      <div class="tile tile-danger"><span class="tile-label">Graves</span><span id="s-graves" class="tile-value">0</span></div>
+      <div class="tile"><span class="tile-label">Hoje</span><span id="s-hoje" class="tile-value">0</span></div>
+      <div class="tile"><span class="tile-label">Último alerta</span><span id="s-ultimo" class="tile-value tile-small">-</span></div>
+    </section>
+
+    <section class="charts">
+      <div class="panel chart-panel">
+        <h2>Alertas por dia</h2>
+        <div id="chart-days" class="bars"></div>
+      </div>
+      <div class="panel">
+        <h2>Por tipo</h2>
+        <div id="top-flags" class="toplist"></div>
+      </div>
+      <div class="panel">
+        <h2>Por app</h2>
+        <div id="top-apps" class="toplist"></div>
+      </div>
+      <div class="panel">
+        <h2>Por filho</h2>
+        <div id="top-children" class="toplist"></div>
+      </div>
+    </section>
+
+    <main class="dashboard-grid">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Alertas <span id="alerts-count" class="count"></span></h2>
+          <div class="seg">
+            <button id="sort-recent" class="seg-btn active">Mais recentes</button>
+            <button id="sort-severity" class="seg-btn">Mais graves</button>
+          </div>
+        </div>
+        <p id="alerts-empty" class="empty-state">Nenhum alerta neste filtro.</p>
+        <div id="alerts-list" class="alerts-list"></div>
+        <button id="more-btn" class="secondary small hidden">Mostrar mais</button>
+      </section>
+
+      <div class="side-col">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Dispositivos</h2>
+            <span id="robo-status" class="robo" title="Robô que aprova dispositivos e envia e-mails">Robô: -</span>
+          </div>
+          <div id="requests-box" class="hidden">
+            <p class="hint strong">Aguardando aprovação</p>
+            <div id="requests-list" class="device-list"></div>
+          </div>
+          <div id="devices-list" class="device-list"></div>
+          <p id="devices-empty" class="empty-state">Nenhum dispositivo enviando sinal ainda.</p>
+        </section>
+
+        <section class="panel settings-panel">
+          <h2>Avisos por e-mail</h2>
+          <label for="n-email">Enviar para</label>
+          <input type="email" id="n-email" placeholder="seu@email.com" autocomplete="off" />
+          <label class="check"><input type="checkbox" id="n-grave" checked /> Alerta grave (na hora)</label>
+          <label class="check"><input type="checkbox" id="n-offline" checked /> Dispositivo sem sinal há 24 h</label>
+          <label for="n-resumo">Resumo</label>
+          <select id="n-resumo">
+            <option value="diario">Diário, às 20h</option>
+            <option value="semanal">Semanal, domingo às 20h</option>
+            <option value="nao">Não enviar</option>
+          </select>
+          <button id="n-save-btn" class="primary">Salvar avisos</button>
+          <p id="n-status" class="status"></p>
+        </section>
+
+        <aside class="panel settings-panel">
+        <h2>Configuração de IA</h2>
+        <p class="hint">Provedor em uso: <strong id="current-provider">-</strong></p>
+
+        <label for="provider-select">Provedor</label>
+        <select id="provider-select">
+          <option value="local_gratis">Local (grátis, regex)</option>
+          <option value="openai">OpenAI</option>
+          <option value="gemini">Google Gemini</option>
+          <option value="anthropic">Anthropic (Claude)</option>
+        </select>
+
+        <div id="api-key-row" class="hidden">
+          <label for="api-key-input">API Key</label>
+          <input type="password" id="api-key-input" placeholder="Deixe vazio para manter a atual" autocomplete="off" />
+          <p class="hint">A chave é criptografada pelo servidor e o pedido é apagado logo depois.</p>
+        </div>
+
+        <button id="save-settings-btn" class="primary">Salvar configuração</button>
+        <p id="settings-status" class="status"></p>
+        <p class="hint">Aplicado pelo robô do GitHub (alguns minutos, ou algumas horas sem o token opcional).</p>
+        </aside>
+      </div>
+    </main>
+  </section>
+
+  <script type="module" src="js/app.js?v=demo1"></script>
+</body>
+</html>
