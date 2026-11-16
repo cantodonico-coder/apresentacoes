@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galeria 3D · NicoShake Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#f2f2f2;font-family:Inter,system-ui,sans-serif}
+header{padding:56px 6vw 28px;background:radial-gradient(#ffffff10 1px,transparent 1px) 0 0/18px 18px}
+h1{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(56px,11vw,128px);line-height:.9;margin:0;color:#ffd400;letter-spacing:1px}
+.tag{font-family:"Permanent Marker",cursive;color:#ff2e93;font-size:clamp(20px,3vw,28px);display:inline-block;transform:rotate(-2deg);margin-top:14px}
+header p{max-width:640px;color:#bbb;line-height:1.55;font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.chips span{border:2px solid #333;border-radius:20px;padding:6px 12px;font-size:13px;font-weight:700}
+main{columns:4 260px;column-gap:16px;padding:12px 6vw 40px}
+figure{break-inside:avoid;margin:0 0 16px;background:#141414;border:1px solid #222;border-radius:16px;overflow:hidden;cursor:zoom-in;transition:transform .2s,border-color .2s}
+.f{display:flex;flex-wrap:wrap;gap:8px;padding:0 6vw 18px}.f button{background:#141414;color:#ddd;border:2px solid #333;border-radius:20px;padding:8px 14px;font:700 13px Inter,sans-serif;cursor:pointer}.f button.on{background:#ffd400;color:#000;border-color:#ffd400}
+figure.hide{display:none}
+figure:hover{transform:translateY(-3px);border-color:#ffd400}
+figure img,figure video{display:block;width:100%;height:auto}figure.vid{cursor:default}
+figcaption{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 14px;font-size:14px}
+figcaption span{color:#ff2e93;font-size:12px;font-weight:700;white-space:nowrap}
+.cta{margin:0 6vw 40px;padding:28px;border:2px solid #ffd400;border-radius:18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.cta b{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:30px;color:#ffd400}.cta p{margin:4px 0 0;color:#bbb}
+footer{text-align:center;padding:28px;color:#777;border-top:1px solid #1d1d1d;font-size:14px}
+#lb{position:fixed;inset:0;background:#000e;display:none;align-items:center;justify-content:center;z-index:9}#lb.on{display:flex}
+#lb img{max-width:92vw;max-height:84vh;border-radius:12px}#lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-weight:700}
+#lb button{position:absolute;background:#ffd400;color:#000;border:0;border-radius:50%;width:48px;height:48px;font-size:22px;font-weight:700;cursor:pointer}
+#x{top:16px;right:16px}#p{left:14px;top:50%}#n{right:14px;top:50%}
+@media (prefers-reduced-motion:reduce){figure{transition:none}}
+</style></head><body>
+<header><h1>GALERIA 3D</h1><div class="tag">Do arquivo à peça, na K1</div>
+<p>Peças impressas em 3D pela NicoShake Labs: bonecos personalizados, colecionáveis, estátuas, bustos, chaveiros, utilidades e peças funcionais. Impressão, acabamento e pintura à mão.</p>
+<div class="chips"><span>Creality K1</span><span>PLA</span><span>Pintura à mão</span><span>Sob encomenda</span></div></header>
+<nav class="f"><button class="on" data-f="">Todas (23)</button><button data-f="Pintura">Pintura</button><button data-f="Multicor">Multicor</button><button data-f="Sob encomenda">Sob encomenda</button><button data-f="Alto detalhe">Alto detalhe</button><button data-f="Colecionável">Colecionável</button><button data-f="Acabamento">Acabamento</button><button data-f="Utilidade">Utilidade</button><button data-f="Funcional">Funcional</button></nav>
+<main>
+<figure data-c="Pintura"><img src="14-boneco-zumbi-jaqueta.jpg" alt="Boneco zumbi de jaqueta vermelha" loading="lazy"><figcaption><b>Boneco zumbi de jaqueta vermelha</b><span>Pintura</span></figcaption></figure>
+<figure class="vid" data-c="Pintura"><video src="23-boneco-zumbi-video.mp4" poster="23-boneco-zumbi-video.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption><b>Boneco zumbi em vídeo</b><span>Vídeo</span></figcaption></figure>
+<figure data-c="Pintura"><img src="01-mf-doom-pintado.jpg" alt="MF DOOM pintado à mão" loading="lazy"><figcaption><b>MF DOOM pintado à mão</b><span>Pintura</span></figcaption></figure>
+<figure data-c="Multicor"><img src="16-guerreiro-espadas.jpg" alt="Guerreiro com espadas" loading="lazy"><figcaption><b>Guerreiro com espadas</b><span>Multicor</span></figcaption></figure>
+<figure data-c="Pintura"><img src="21-cachorro-balao.jpg" alt="Cachorro de balão com pintura escorrida" loading="lazy"><figcaption><b>Cachorro de balão com pintura escorrida</b><span>Pintura</span></figcaption></figure>
+<figure data-c="Multicor"><img src="22-maquina-costura.jpg" alt="Mini máquina de costura em 3 cores" loading="lazy"><figcaption><b>Mini máquina de costura em 3 cores</b><span>Multicor</span></figcaption></figure>
+<figure data-c="Pintura"><img src="12-boneco-motosserra.jpg" alt="Boneco com máscara e motosserra" loading="lazy"><figcaption><b>Boneco com máscara e motosserra</b><span>Pintura</span></figcaption></figure>
+<figure data-c="Pintura"><img src="18-busto-cowboy.jpg" alt="Busto de cowboy" loading="lazy"><figcaption><b>Busto de cowboy</b><span>Pintura</span></figcaption></figure>
+<figure data-c="Pintura"><img src="17-boneco-camiseta-branca.jpg" alt="Boneco de camiseta branca" loading="lazy"><figcaption><b>Boneco de camiseta branca</b><span>Pintura</span></figcaption></figure>
+<figure data-c="Pintura"><img src="19-boneco-terno-maleta.jpg" alt="Boneco de terno e maleta" loading="lazy"><figcaption><b>Boneco de terno e maleta</b><span>Pintura</span></figcaption></figure>
+<figure data-c="Pintura"><img src="13-boneco-touca-vermelha.jpg" alt="Boneco de touca vermelha" loading="lazy"><figcaption><b>Boneco de touca vermelha</b><span>Pintura</span></figcaption></figure>
+<figure data-c="Sob encomenda"><img src="03-boneco-king.jpg" alt="Boneco personalizado King" loading="lazy"><figcaption><b>Boneco personalizado King</b><span>Sob encomenda</span></figcaption></figure>
+<figure data-c="Sob encomenda"><img src="02-boneco-bone-la.jpg" alt="Boneco com boné LA" loading="lazy"><figcaption><b>Boneco com boné LA</b><span>Sob encomenda</span></figcaption></figure>
+<figure data-c="Sob encomenda"><img src="15-chaveiros-museu-hiphop.jpg" alt="Chaveiros Museu do Hip Hop RS" loading="lazy"><figcaption><b>Chaveiros Museu do Hip Hop RS</b><span>Sob encomenda</span></figcaption></figure>
+<figure data-c="Alto detalhe"><img src="11-estatua-rosas-caveira.jpg" alt="Estátua com rosas e caveira" loading="lazy"><figcaption><b>Estátua com rosas e caveira</b><span>Alto detalhe</span></figcaption></figure>
+<figure data-c="Alto detalhe"><img src="08-busto-cetro.jpg" alt="Busto de rei com cetro" loading="lazy"><figcaption><b>Busto de rei com cetro</b><span>Alto detalhe</span></figcaption></figure>
+<figure data-c="Alto detalhe"><img src="20-caveira-na-mao.jpg" alt="Caveira na mão" loading="lazy"><figcaption><b>Caveira na mão</b><span>Alto detalhe</span></figcaption></figure>
+<figure data-c="Colecionável"><img src="09-alien.jpg" alt="Alien em filamento preto" loading="lazy"><figcaption><b>Alien em filamento preto</b><span>Colecionável</span></figcaption></figure>
+<figure data-c="Colecionável"><img src="06-mf-doom-verde.jpg" alt="MF DOOM em filamento verde" loading="lazy"><figcaption><b>MF DOOM em filamento verde</b><span>Colecionável</span></figcaption></figure>
+<figure data-c="Acabamento"><img src="07-mf-doom-e-vader-primer.jpg" alt="MF DOOM e Vader no primer" loading="lazy"><figcaption><b>MF DOOM e Vader no primer</b><span>Acabamento</span></figcaption></figure>
+<figure data-c="Colecionável"><img src="10-esqueleto.jpg" alt="Esqueleto chibi" loading="lazy"><figcaption><b>Esqueleto chibi</b><span>Colecionável</span></figcaption></figure>
+<figure data-c="Utilidade"><img src="05-porta-talheres.jpg" alt="Porta-talheres vazado" loading="lazy"><figcaption><b>Porta-talheres vazado</b><span>Utilidade</span></figcaption></figure>
+<figure data-c="Funcional"><img src="04-rosca-parafuso.jpg" alt="Parafuso e porca com rosca" loading="lazy"><figcaption><b>Parafuso e porca com rosca</b><span>Funcional</span></figcaption></figure>
+</main>
+<section class="cta"><div><b>QUER UMA PEÇA SUA?</b><p>Boneco personalizado, chaveiro com logo, troféu ou peça sob medida.</p></div></section>
+<footer>NicoShake Labs</footer>
+<div id="lb" role="dialog" aria-modal="true"><button id="x" aria-label="Fechar">✕</button><button id="p" aria-label="Anterior">‹</button><img alt=""><button id="n" aria-label="Próxima">›</button><p></p></div>
+<script>
+var ALL=[].slice.call(document.querySelectorAll("figure:not(.vid)")),V=[].slice.call(document.querySelectorAll("figure.vid")),F=ALL,L=document.getElementById("lb"),I=L.querySelector("img"),T=L.querySelector("p"),k=0;
+function show(i){k=(i+F.length)%F.length;var im=F[k].querySelector("img");I.src=im.src;I.alt=im.alt;T.textContent=im.alt;L.classList.add("on");}
+ALL.forEach(function(f){f.onclick=function(){show(F.indexOf(f));};});
+[].forEach.call(document.querySelectorAll(".f button"),function(b){b.onclick=function(){var c=b.getAttribute("data-f");[].forEach.call(document.querySelectorAll(".f button"),function(x){x.classList.toggle("on",x===b);});ALL.concat(V).forEach(function(f){f.classList.toggle("hide",!!c&&f.getAttribute("data-c")!==c);});F=ALL.filter(function(f){return !f.classList.contains("hide");});};});
+document.getElementById("x").onclick=function(){L.classList.remove("on");};
+document.getElementById("p").onclick=function(e){e.stopPropagation();show(k-1);};
+document.getElementById("n").onclick=function(e){e.stopPropagation();show(k+1);};
+L.onclick=function(e){if(e.target===L)L.classList.remove("on");};
+document.onkeydown=function(e){if(!L.classList.contains("on"))return;if(e.key==="Escape")L.classList.remove("on");if(e.key==="ArrowLeft")show(k-1);if(e.key==="ArrowRight")show(k+1);};
+</script></body></html>
