@@ -135,6 +135,35 @@ a.go:hover{color:#C6F24E}
 .toc-item{display:flex;gap:18px;align-items:baseline;width:100%;text-align:left;background:none;border:none;border-top:1px solid #2A3640;color:#E9EEF1;font:500 20px "Inter Tight",sans-serif;padding:16px 4px;cursor:pointer}
 .toc-item span{font:500 14px "JetBrains Mono",monospace;color:#3CCFB4}
 .toc-item:hover,.toc-item.cur{color:#C6F24E}
+
+/* ===== Celular (retrato) ===== */
+body.m #viewport{display:block;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;bottom:56px}
+body.m #stage{width:720px;height:auto;transform:none!important;zoom:var(--k)}
+body.m #stage>section{position:relative;inset:auto;width:720px;height:auto;min-height:var(--mh);padding:56px 40px 72px!important;overflow:visible}
+body.m h1{font-size:84px!important;margin-top:32px!important}
+body.m h2{font-size:52px!important}
+body.m h3{font-size:30px!important}
+body.m .coltitle{font-size:40px;margin:8px 0 20px}
+body.m .mega{font-size:88px}
+body.m .cover-text{width:100%}
+body.m .cover-text img{width:100%!important;height:auto!important;margin-top:24px!important}
+body.m .cover-text .lead{width:100%;margin-top:28px}
+body.m .cover-foot{flex-wrap:wrap;gap:16px;padding-top:48px}
+body.m .split,body.m .duo,body.m .headrow,body.m .band,body.m .tables,body.m .total-box{grid-template-columns:1fr!important;gap:32px}
+body.m .split .right{border-left:none;padding-left:0;border-top:1px solid #2A3640;padding-top:32px}
+body.m .headrow{margin-bottom:32px;padding-bottom:24px;align-items:start!important}
+body.m .g4,body.m .g3,body.m .steps5,body.m .mini{grid-template-columns:1fr 1fr}
+body.m .g2{gap:32px 28px}
+body.m .duo{gap:56px}
+body.m .res{margin-top:24px}
+body.m .band{margin-top:48px}
+body.m .total-box{margin-top:40px;padding:32px}
+body.m .split{gap:32px}
+body.m .ui{height:56px;gap:6px}
+body.m .ui button{height:38px;padding:0 10px;font-size:13px}
+body.m #fs{display:none}
+body.m #bar{bottom:56px}
+body.m #toc{bottom:56px}
 @page{size:1920px 1080px;margin:0}
 @media print{
  html,body{height:auto;overflow:visible;background:none}
@@ -496,14 +525,20 @@ a.go:hover{color:#C6F24E}
 (function(){
  var S=[].slice.call(document.querySelectorAll('#stage>section')),N=S.length,cur=1,hist=[];
  var stage=document.getElementById('stage'),vp=document.getElementById('viewport');
- function fit(){var r=vp.getBoundingClientRect();var k=Math.min(r.width/1920,r.height/1080);stage.style.transform='scale('+k+')';}
+ function fit(){
+  var m=window.innerWidth<820&&window.innerHeight>window.innerWidth;
+  document.body.classList.toggle('m',m);
+  var r=vp.getBoundingClientRect();
+  if(m){var k=r.width/720;stage.style.setProperty('--k',k);stage.style.setProperty('--mh',(r.height/k)+'px');stage.style.transform='';}
+  else{var k2=Math.min(r.width/1920,r.height/1080);stage.style.transform='scale('+k2+')';}
+ }
  window.addEventListener('resize',fit);fit();
  function show(n,push){
   n=Math.max(1,Math.min(N,n|0));
   if(push&&n!==cur)hist.push(cur);
   S.forEach(function(s){s.classList.remove('active')});
   void stage.offsetWidth;
-  S[n-1].classList.add('active');cur=n;
+  S[n-1].classList.add('active');cur=n;vp.scrollTop=0;
   document.getElementById('count').textContent=n+' / '+N;
   document.getElementById('prev').disabled=n===1;
   document.getElementById('next').disabled=n===N;
@@ -531,8 +566,8 @@ a.go:hover{color:#C6F24E}
   else if(e.key==='Escape')document.getElementById('toc').classList.remove('open');
   else if(e.key==='Backspace'&&hist.length){show(hist.pop())}
  });
- var x0=null;vp.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
- vp.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));x0=null});
+ var x0=null,y0=0;vp.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+ vp.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)show(cur+(dx<0?1:-1));x0=null});
  window.addEventListener('hashchange',function(){var n=fromHash();if(n!==cur)show(n,true)});
  show(fromHash());
 })();
