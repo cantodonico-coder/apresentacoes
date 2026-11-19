@@ -382,7 +382,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
 </script>
 <script id="dados" type="application/json">
 {
- "atualizado": "2026-11-17",
+ "atualizado": "2026-11-19",
  "linkApresentacoes": "https://cantodonico-coder.github.io/apresentacoes/",
  "projetos": [
   {
@@ -1205,10 +1205,10 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
    "nome": "Mini Torno de Cerâmica",
    "eco": "MAKER",
    "tipo": "peca",
-   "resumo": "Torno compacto de cerâmica (21 × 20 cm) impresso em 3D, movido pela parafusadeira adaptada, sem nenhuma peça colada.",
+   "resumo": "Torno compacto de cerâmica (21 × 20 cm) impresso em 3D, movido pelo motor da parafusadeira com dimmer PWM, sem nenhuma peça colada.",
    "destaques": [
     "Tudo encaixado ou parafusado: desmonta inteiro",
-    "Gatilho original da parafusadeira controla velocidade e sentido",
+    "Dimmer PWM no botão de velocidade e chave de sentido na frente, fora da bandeja",
     "Roda Ø150 mm e bandeja anti-respingo que sai para lavar",
     "Cooler de 80 mm na lateral resfria o motor",
     "Inovação Labs em alto relevo na bandeja",
@@ -1224,6 +1224,10 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
    "etapas": [
     {
      "t": "Projeto compacto v7.3",
+     "ok": true
+    },
+    {
+     "t": "Caixa de controle do dimmer CW008 (v8)",
      "ok": true
     },
     {
@@ -1392,7 +1396,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
 var ORIGINAL="<!DOCTYPE html>\n"+document.documentElement.outerHTML;
 var MODO=document.documentElement.getAttribute("data-modo");
 var OFI=MODO==="oficina";
-var CHAVE="nicoshake-oficina-v13";
+var CHAVE="nicoshake-oficina-v14";
 var ECOS=[
  {k:"CULTURAL",nome:"Cultural",cls:"cul",cor:"var(--cul)",frase:"A família Sentinela, o Portal do Rap, o Museu do Hip Hop e o Setor de Inovação do HUB Atividade: editais, projetos, eventos e a cena hip hop."},
  {k:"SEGURANÇA E CONTROLE",nome:"Segurança",cls:"seg",cor:"var(--seg)",frase:"Proteger a casa: as crianças na internet e a organização da família."},
@@ -1406,7 +1410,7 @@ var MAIS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
 var BASE=JSON.parse(document.getElementById("dados").textContent);
 var CAPAS={};try{CAPAS=JSON.parse(document.getElementById("capas").textContent);}catch(e){}
 var D=BASE,editado=false;
-if(OFI){try{var velho=localStorage.getItem("nicoshake-oficina-v12")||localStorage.getItem("nicoshake-oficina-v11")||localStorage.getItem("nicoshake-oficina-v10")||localStorage.getItem("nicoshake-oficina-v9")||localStorage.getItem("nicoshake-oficina-v8")||localStorage.getItem("nicoshake-oficina-v7")||localStorage.getItem("nicoshake-oficina-v6")||localStorage.getItem("nicoshake-oficina-v5")||localStorage.getItem("nicoshake-oficina-v4");if(velho&&!localStorage.getItem(CHAVE)){var V=JSON.parse(velho),M=JSON.parse(JSON.stringify(BASE));
+if(OFI){try{var velho=localStorage.getItem("nicoshake-oficina-v13")||localStorage.getItem("nicoshake-oficina-v12")||localStorage.getItem("nicoshake-oficina-v11")||localStorage.getItem("nicoshake-oficina-v10")||localStorage.getItem("nicoshake-oficina-v9")||localStorage.getItem("nicoshake-oficina-v8")||localStorage.getItem("nicoshake-oficina-v7")||localStorage.getItem("nicoshake-oficina-v6")||localStorage.getItem("nicoshake-oficina-v5")||localStorage.getItem("nicoshake-oficina-v4");if(velho&&!localStorage.getItem(CHAVE)){var V=JSON.parse(velho),M=JSON.parse(JSON.stringify(BASE));
   M.projetos.forEach(function(p){var o=V.projetos.filter(function(x){return x.id===p.id;})[0];if(!o)return;if(o.validado)p.validado=o.validado;if(o.local&&o.local!==p.local&&!/^C:\\Projetos/i.test(o.local)){p.local=o.local;p.validado="";}
    (p.etapas||[]).forEach(function(e){(o.etapas||[]).forEach(function(oe){if(oe.t===e.t&&oe.ok)e.ok=true;});});});
   localStorage.setItem(CHAVE,JSON.stringify(M));}}catch(e){}
