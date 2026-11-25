@@ -1419,7 +1419,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
      "ok": true
     },
     {
-     "t": "Atualizar a skill do portfólio para a marca Inovação Labs",
+     "t": "Ajustar as skills quando o nome final da marca for definido (por enquanto, NicoShake)",
      "ok": false
     }
    ],
@@ -1437,7 +1437,7 @@ dialog::backdrop{background:rgba(2,16,18,.72)}
 var ORIGINAL="<!DOCTYPE html>\n"+document.documentElement.outerHTML;
 var MODO=document.documentElement.getAttribute("data-modo");
 var OFI=MODO==="oficina";
-var CHAVE="nicoshake-oficina-v15";
+var CHAVE="nicoshake-oficina-v16";
 var ECOS=[
  {k:"CULTURAL",nome:"Cultural",cls:"cul",cor:"var(--cul)",frase:"A família Sentinela, o Portal do Rap, o Museu do Hip Hop e o Setor de Inovação do HUB Atividade: editais, projetos, eventos e a cena hip hop."},
  {k:"SEGURANÇA E CONTROLE",nome:"Segurança",cls:"seg",cor:"var(--seg)",frase:"Proteger a casa: as crianças na internet e a organização da família."},
@@ -1451,7 +1451,7 @@ var MAIS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
 var BASE=JSON.parse(document.getElementById("dados").textContent);
 var CAPAS={};try{CAPAS=JSON.parse(document.getElementById("capas").textContent);}catch(e){}
 var D=BASE,editado=false;
-if(OFI){try{var velho=localStorage.getItem("nicoshake-oficina-v14")||localStorage.getItem("nicoshake-oficina-v13")||localStorage.getItem("nicoshake-oficina-v12")||localStorage.getItem("nicoshake-oficina-v11")||localStorage.getItem("nicoshake-oficina-v10")||localStorage.getItem("nicoshake-oficina-v9")||localStorage.getItem("nicoshake-oficina-v8")||localStorage.getItem("nicoshake-oficina-v7")||localStorage.getItem("nicoshake-oficina-v6")||localStorage.getItem("nicoshake-oficina-v5")||localStorage.getItem("nicoshake-oficina-v4");if(velho&&!localStorage.getItem(CHAVE)){var V=JSON.parse(velho),M=JSON.parse(JSON.stringify(BASE));
+if(OFI){try{var velho=localStorage.getItem("nicoshake-oficina-v15")||localStorage.getItem("nicoshake-oficina-v14")||localStorage.getItem("nicoshake-oficina-v13")||localStorage.getItem("nicoshake-oficina-v12")||localStorage.getItem("nicoshake-oficina-v11")||localStorage.getItem("nicoshake-oficina-v10")||localStorage.getItem("nicoshake-oficina-v9")||localStorage.getItem("nicoshake-oficina-v8")||localStorage.getItem("nicoshake-oficina-v7")||localStorage.getItem("nicoshake-oficina-v6")||localStorage.getItem("nicoshake-oficina-v5")||localStorage.getItem("nicoshake-oficina-v4");if(velho&&!localStorage.getItem(CHAVE)){var V=JSON.parse(velho),M=JSON.parse(JSON.stringify(BASE));
   M.projetos.forEach(function(p){var o=V.projetos.filter(function(x){return x.id===p.id;})[0];if(!o)return;if(o.validado)p.validado=o.validado;if(o.local&&o.local!==p.local&&!/^C:\\Projetos/i.test(o.local)){p.local=o.local;p.validado="";}
    (p.etapas||[]).forEach(function(e){(o.etapas||[]).forEach(function(oe){if(oe.t===e.t&&oe.ok)e.ok=true;});});});
   localStorage.setItem(CHAVE,JSON.stringify(M));}}catch(e){}
